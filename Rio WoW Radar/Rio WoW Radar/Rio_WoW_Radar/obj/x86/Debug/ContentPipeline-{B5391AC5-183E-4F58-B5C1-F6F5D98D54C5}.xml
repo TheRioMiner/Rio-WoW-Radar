@@ -1,0 +1,1028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Classes\class_dk.png</Source>
+      <Name>Classes\class_dk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_dk.xnb</Output>
+      <Time>2017-11-08T17:29:10.9314293+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_druid.png</Source>
+      <Name>Classes\class_druid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_druid.xnb</Output>
+      <Time>2017-11-08T17:29:10.9384297+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_hunter.png</Source>
+      <Name>Classes\class_hunter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_hunter.xnb</Output>
+      <Time>2017-11-08T17:29:10.9454301+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_mage.png</Source>
+      <Name>Classes\class_mage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_mage.xnb</Output>
+      <Time>2017-11-08T17:29:10.9534306+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_paladin.png</Source>
+      <Name>Classes\class_paladin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_paladin.xnb</Output>
+      <Time>2017-11-08T17:29:10.9594309+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_priest.png</Source>
+      <Name>Classes\class_priest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_priest.xnb</Output>
+      <Time>2017-11-08T17:29:10.9654313+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_rogue.png</Source>
+      <Name>Classes\class_rogue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_rogue.xnb</Output>
+      <Time>2017-11-08T17:29:10.9674314+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_shaman.png</Source>
+      <Name>Classes\class_shaman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_shaman.xnb</Output>
+      <Time>2017-11-08T17:29:10.978432+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_warlock.png</Source>
+      <Name>Classes\class_warlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_warlock.xnb</Output>
+      <Time>2017-11-08T17:29:10.9844324+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Classes\class_warrior.png</Source>
+      <Name>Classes\class_warrior</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Classes\class_warrior.xnb</Output>
+      <Time>2017-11-08T17:29:10.995433+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_arrow.png</Source>
+      <Name>Other\other_arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_arrow.xnb</Output>
+      <Time>2017-11-14T14:38:21.8524954+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_bloodelf_female.png</Source>
+      <Name>Races\race_bloodelf_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_bloodelf_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.0104338+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_bloodelf_male.png</Source>
+      <Name>Races\race_bloodelf_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_bloodelf_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0174342+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_dranei_female.png</Source>
+      <Name>Races\race_dranei_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_dranei_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.0264348+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_dranei_male.png</Source>
+      <Name>Races\race_dranei_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_dranei_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0374354+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_dwarf_female.png</Source>
+      <Name>Races\race_dwarf_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_dwarf_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.047436+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_dwarf_male.png</Source>
+      <Name>Races\race_dwarf_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_dwarf_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0494361+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_gnome_female.png</Source>
+      <Name>Races\race_gnome_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_gnome_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.0514362+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_gnome_male.png</Source>
+      <Name>Races\race_gnome_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_gnome_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0584366+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_human_female.png</Source>
+      <Name>Races\race_human_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_human_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.065437+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_human_male.png</Source>
+      <Name>Races\race_human_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_human_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0724374+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_nightelf_female.png</Source>
+      <Name>Races\race_nightelf_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_nightelf_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.082438+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_nightelf_male.png</Source>
+      <Name>Races\race_nightelf_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_nightelf_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.0914385+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_orc_female.png</Source>
+      <Name>Races\race_orc_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_orc_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.1024391+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_orc_male.png</Source>
+      <Name>Races\race_orc_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_orc_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.1104396+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_tauren_female.png</Source>
+      <Name>Races\race_tauren_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_tauren_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.1194401+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_tauren_male.png</Source>
+      <Name>Races\race_tauren_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_tauren_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.1234403+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_troll_female.png</Source>
+      <Name>Races\race_troll_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_troll_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.1314408+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_troll_male.png</Source>
+      <Name>Races\race_troll_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_troll_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.1414413+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_undead_female.png</Source>
+      <Name>Races\race_undead_female</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_undead_female.xnb</Output>
+      <Time>2017-11-08T17:29:11.1444415+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Races\race_undead_male.png</Source>
+      <Name>Races\race_undead_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Races\race_undead_male.xnb</Output>
+      <Time>2017-11-08T17:29:11.1494418+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_adamantium.tga</Source>
+      <Name>Mine\mine_adamantium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_adamantium.xnb</Output>
+      <Time>2017-11-21T04:23:42.6343746+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_blood_iron.tga</Source>
+      <Name>Mine\mine_blood_iron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_blood_iron.xnb</Output>
+      <Time>2017-11-21T04:23:42.6533757+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_cobalt.tga</Source>
+      <Name>Mine\mine_cobalt</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_cobalt.xnb</Output>
+      <Time>2017-11-21T04:23:42.6613761+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_copper.tga</Source>
+      <Name>Mine\mine_copper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_copper.xnb</Output>
+      <Time>2017-11-21T04:23:42.6663764+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_darkiron.tga</Source>
+      <Name>Mine\mine_darkiron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_darkiron.xnb</Output>
+      <Time>2017-11-21T04:23:42.6783771+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_feliron.tga</Source>
+      <Name>Mine\mine_feliron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_feliron.xnb</Output>
+      <Time>2017-11-21T04:23:42.6903778+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_gold.tga</Source>
+      <Name>Mine\mine_gold</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_gold.xnb</Output>
+      <Time>2017-11-21T04:23:42.7013784+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_iron.tga</Source>
+      <Name>Mine\mine_iron</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_iron.xnb</Output>
+      <Time>2017-11-21T04:23:42.7313801+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_khorium.tga</Source>
+      <Name>Mine\mine_khorium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_khorium.xnb</Output>
+      <Time>2017-11-21T04:23:42.7423808+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_mithril.tga</Source>
+      <Name>Mine\mine_mithril</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_mithril.xnb</Output>
+      <Time>2017-11-21T04:23:42.7503812+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_rich_adamantium.tga</Source>
+      <Name>Mine\mine_rich_adamantium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_rich_adamantium.xnb</Output>
+      <Time>2017-11-21T04:23:42.7683822+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_rich_thorium.tga</Source>
+      <Name>Mine\mine_rich_thorium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_rich_thorium.xnb</Output>
+      <Time>2017-11-21T04:23:42.7893834+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_saronite.tga</Source>
+      <Name>Mine\mine_saronite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_saronite.xnb</Output>
+      <Time>2017-11-21T04:23:42.8033842+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_silver.tga</Source>
+      <Name>Mine\mine_silver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_silver.xnb</Output>
+      <Time>2017-11-21T04:23:42.8193852+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_thorium.tga</Source>
+      <Name>Mine\mine_thorium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_thorium.xnb</Output>
+      <Time>2017-11-21T04:23:42.8313858+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_tin.tga</Source>
+      <Name>Mine\mine_tin</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_tin.xnb</Output>
+      <Time>2017-11-21T04:23:42.8543872+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_titanium.tga</Source>
+      <Name>Mine\mine_titanium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_titanium.xnb</Output>
+      <Time>2017-11-21T04:23:42.8603875+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_truesilver.tga</Source>
+      <Name>Mine\mine_truesilver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_truesilver.xnb</Output>
+      <Time>2017-11-21T04:23:42.8833888+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_ancient_lichen.tga</Source>
+      <Name>Herb\herb_ancient_lichen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_ancient_lichen.xnb</Output>
+      <Time>2017-11-26T02:59:04.5919523+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_arthas_tears.tga</Source>
+      <Name>Herb\herb_arthas_tears</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_arthas_tears.xnb</Output>
+      <Time>2017-11-26T02:59:04.603953+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_black_lotus.tga</Source>
+      <Name>Herb\herb_black_lotus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_black_lotus.xnb</Output>
+      <Time>2017-11-26T02:59:04.6149536+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_blindweed.tga</Source>
+      <Name>Herb\herb_blindweed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_blindweed.xnb</Output>
+      <Time>2017-11-26T02:59:04.6289544+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_briarthorn.tga</Source>
+      <Name>Herb\herb_briarthorn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_briarthorn.xnb</Output>
+      <Time>2017-11-26T02:59:04.6439553+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_bruiseweed.tga</Source>
+      <Name>Herb\herb_bruiseweed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_bruiseweed.xnb</Output>
+      <Time>2017-11-26T02:59:04.6479555+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_constrictor.tga</Source>
+      <Name>Herb\herb_constrictor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_constrictor.xnb</Output>
+      <Time>2017-11-26T02:59:04.6599562+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_dreamfoil.tga</Source>
+      <Name>Herb\herb_dreamfoil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_dreamfoil.xnb</Output>
+      <Time>2017-11-26T02:59:04.6639564+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_dreaming_glory.tga</Source>
+      <Name>Herb\herb_dreaming_glory</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_dreaming_glory.xnb</Output>
+      <Time>2017-11-26T02:59:04.6729569+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_earthroot.tga</Source>
+      <Name>Herb\herb_earthroot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_earthroot.xnb</Output>
+      <Time>2017-11-26T02:59:04.6789573+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_evergreen.tga</Source>
+      <Name>Herb\herb_evergreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_evergreen.xnb</Output>
+      <Time>2017-11-26T02:59:04.690958+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_fadeleaf.tga</Source>
+      <Name>Herb\herb_fadeleaf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_fadeleaf.xnb</Output>
+      <Time>2017-11-26T02:59:04.7059588+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_felweed.tga</Source>
+      <Name>Herb\herb_felweed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_felweed.xnb</Output>
+      <Time>2017-11-26T02:59:04.7159594+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_firebloom.tga</Source>
+      <Name>Herb\herb_firebloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_firebloom.xnb</Output>
+      <Time>2017-11-26T02:59:04.7299602+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_flame_cap.tga</Source>
+      <Name>Herb\herb_flame_cap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_flame_cap.xnb</Output>
+      <Time>2017-11-26T02:59:04.7529615+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_frostlotus.tga</Source>
+      <Name>Herb\herb_frostlotus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_frostlotus.xnb</Output>
+      <Time>2017-11-26T02:59:04.761962+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_ghost_mushroom.tga</Source>
+      <Name>Herb\herb_ghost_mushroom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_ghost_mushroom.xnb</Output>
+      <Time>2017-11-26T02:59:04.7759628+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_goldclover.tga</Source>
+      <Name>Herb\herb_goldclover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_goldclover.xnb</Output>
+      <Time>2017-11-26T02:59:04.7799631+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_golden_sansam.tga</Source>
+      <Name>Herb\herb_golden_sansam</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_golden_sansam.xnb</Output>
+      <Time>2017-11-26T02:59:04.7939639+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_goldthorn.tga</Source>
+      <Name>Herb\herb_goldthorn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_goldthorn.xnb</Output>
+      <Time>2017-11-26T02:59:04.8049645+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_grave_moss.tga</Source>
+      <Name>Herb\herb_grave_moss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_grave_moss.xnb</Output>
+      <Time>2017-11-26T02:59:04.8169652+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_gromsblood.tga</Source>
+      <Name>Herb\herb_gromsblood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_gromsblood.xnb</Output>
+      <Time>2017-11-26T02:59:04.8229655+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_icecap.tga</Source>
+      <Name>Herb\herb_icecap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_icecap.xnb</Output>
+      <Time>2017-11-26T02:59:04.8349662+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_icethorn.tga</Source>
+      <Name>Herb\herb_icethorn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_icethorn.xnb</Output>
+      <Time>2017-11-26T02:59:04.8569675+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_khadgars_whisker.tga</Source>
+      <Name>Herb\herb_khadgars_whisker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_khadgars_whisker.xnb</Output>
+      <Time>2017-11-26T02:59:04.8709683+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_kingsblood.tga</Source>
+      <Name>Herb\herb_kingsblood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_kingsblood.xnb</Output>
+      <Time>2017-11-26T02:59:04.8979698+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_liferoot.tga</Source>
+      <Name>Herb\herb_liferoot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_liferoot.xnb</Output>
+      <Time>2017-11-26T02:59:04.936972+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_mageroyal.tga</Source>
+      <Name>Herb\herb_mageroyal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_mageroyal.xnb</Output>
+      <Time>2017-11-26T02:59:04.9489727+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_mana_thistle.tga</Source>
+      <Name>Herb\herb_mana_thistle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_mana_thistle.xnb</Output>
+      <Time>2017-11-26T02:59:04.970974+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_misc_flower.tga</Source>
+      <Name>Herb\herb_misc_flower</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_misc_flower.xnb</Output>
+      <Time>2017-11-26T02:59:04.9759743+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_mountain_silversage.tga</Source>
+      <Name>Herb\herb_mountain_silversage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_mountain_silversage.xnb</Output>
+      <Time>2017-11-26T02:59:05.0169766+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_netherbloom.tga</Source>
+      <Name>Herb\herb_netherbloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_netherbloom.xnb</Output>
+      <Time>2017-11-26T02:59:05.023977+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_netherdust.tga</Source>
+      <Name>Herb\herb_netherdust</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_netherdust.xnb</Output>
+      <Time>2017-11-26T02:59:05.0379778+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_nightmare_vine.tga</Source>
+      <Name>Herb\herb_nightmare_vine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_nightmare_vine.xnb</Output>
+      <Time>2017-11-26T02:59:05.0449782+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_peacebloom.tga</Source>
+      <Name>Herb\herb_peacebloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_peacebloom.xnb</Output>
+      <Time>2017-11-26T02:59:05.057979+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_plaguebloom.tga</Source>
+      <Name>Herb\herb_plaguebloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_plaguebloom.xnb</Output>
+      <Time>2017-11-26T02:59:05.0859806+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_purple_lotus.tga</Source>
+      <Name>Herb\herb_purple_lotus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_purple_lotus.xnb</Output>
+      <Time>2017-11-26T02:59:05.092981+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_ragveil.tga</Source>
+      <Name>Herb\herb_ragveil</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_ragveil.xnb</Output>
+      <Time>2017-11-26T02:59:05.1249828+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_silverleaf.tga</Source>
+      <Name>Herb\herb_silverleaf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_silverleaf.xnb</Output>
+      <Time>2017-11-26T02:59:05.1359834+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_stranglekelp.tga</Source>
+      <Name>Herb\herb_stranglekelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_stranglekelp.xnb</Output>
+      <Time>2017-11-26T02:59:05.1439839+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_sungrass.tga</Source>
+      <Name>Herb\herb_sungrass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_sungrass.xnb</Output>
+      <Time>2017-11-26T02:59:05.1559846+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_terocone.tga</Source>
+      <Name>Herb\herb_terocone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_terocone.xnb</Output>
+      <Time>2017-11-26T02:59:05.1699854+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_tigerlily.tga</Source>
+      <Name>Herb\herb_tigerlily</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_tigerlily.xnb</Output>
+      <Time>2017-11-26T02:59:05.1849862+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_trose.tga</Source>
+      <Name>Herb\herb_trose</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_trose.xnb</Output>
+      <Time>2017-11-26T02:59:05.1909866+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_wild_steelbloom.tga</Source>
+      <Name>Herb\herb_wild_steelbloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_wild_steelbloom.xnb</Output>
+      <Time>2017-11-26T02:59:05.2009871+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_wintersbite.tga</Source>
+      <Name>Herb\herb_wintersbite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_wintersbite.xnb</Output>
+      <Time>2017-11-26T02:59:05.2099877+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\font_main.spritefont</Source>
+      <Name>Fonts\font_main</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Fonts\font_main.xnb</Output>
+      <Time>2017-11-19T17:30:06.8763047+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_rare_object.png</Source>
+      <Name>Other\other_rare_object</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_rare_object.xnb</Output>
+      <Time>2017-11-16T00:05:50.8684731+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\high_lvl.mp3</Source>
+      <Name>Sounds\high_lvl</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Sounds\high_lvl.xnb</Output>
+      <Time>2017-11-19T13:45:39.9280393+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\high_lvl_rogue.mp3</Source>
+      <Name>Sounds\high_lvl_rogue</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Sounds\high_lvl_rogue.xnb</Output>
+      <Time>2017-11-19T13:45:39.9430402+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\my_player_damaged.mp3</Source>
+      <Name>Sounds\my_player_damaged</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Sounds\my_player_damaged.xnb</Output>
+      <Time>2017-11-19T13:45:39.9710418+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\low_lvl.wav</Source>
+      <Name>Sounds\low_lvl</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Sounds\low_lvl.xnb</Output>
+      <Time>2017-11-19T13:45:39.9680416+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Mine\mine_indurium.tga</Source>
+      <Name>Mine\mine_indurium</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Mine\mine_indurium.xnb</Output>
+      <Time>2017-11-21T04:23:42.7183794+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_bloodthistle.tga</Source>
+      <Name>Herb\herb_bloodthistle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_bloodthistle.xnb</Output>
+      <Time>2017-11-26T02:59:04.6409551+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_firethorn.tga</Source>
+      <Name>Herb\herb_firethorn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_firethorn.xnb</Output>
+      <Time>2017-11-26T02:59:04.7429609+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Herb\herb_lichbloom.tga</Source>
+      <Name>Herb\herb_lichbloom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Herb\herb_lichbloom.xnb</Output>
+      <Time>2017-11-26T02:59:04.9219712+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_not_in_world.png</Source>
+      <Name>Other\other_not_in_world</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_not_in_world.xnb</Output>
+      <Time>2017-11-26T10:31:21.9091181+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_target.png</Source>
+      <Name>Other\other_target</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_target.xnb</Output>
+      <Time>2017-11-27T10:00:22.0250711+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_notexist_node.png</Source>
+      <Name>Other\other_notexist_node</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_notexist_node.xnb</Output>
+      <Time>2017-12-02T14:54:11.7514001+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Other\other_notsee_node.png</Source>
+      <Name>Other\other_notsee_node</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\Other\other_notsee_node.xnb</Output>
+      <Time>2017-12-02T14:54:11.7564003+03:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{B5391AC5-183E-4F58-B5C1-F6F5D98D54C5}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_RadarContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Rio\documents\visual studio 2015\Projects\Rio Wow Radar\Rio WoW Radar\Rio_WoW_Radar\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-12-11T21:58:49.5360403+03:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
