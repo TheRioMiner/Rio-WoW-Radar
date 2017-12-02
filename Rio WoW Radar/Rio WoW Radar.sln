@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rio_WoW_Radar", "Rio WoW Radar\Rio_WoW_Radar\Rio_WoW_Radar.csproj", "{5897F5EB-0B41-487D-8133-7D6692871C75}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Rio_WoW_RadarContent", "Rio WoW Radar\Rio_WoW_RadarContent\Rio_WoW_RadarContent.contentproj", "{B5391AC5-183E-4F58-B5C1-F6F5D98D54C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5897F5EB-0B41-487D-8133-7D6692871C75}.Debug|x86.ActiveCfg = Debug|x86
+		{5897F5EB-0B41-487D-8133-7D6692871C75}.Debug|x86.Build.0 = Debug|x86
+		{5897F5EB-0B41-487D-8133-7D6692871C75}.Release|x86.ActiveCfg = Release|x86
+		{5897F5EB-0B41-487D-8133-7D6692871C75}.Release|x86.Build.0 = Release|x86
+		{B5391AC5-183E-4F58-B5C1-F6F5D98D54C5}.Debug|x86.ActiveCfg = Debug|x86
+		{B5391AC5-183E-4F58-B5C1-F6F5D98D54C5}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
