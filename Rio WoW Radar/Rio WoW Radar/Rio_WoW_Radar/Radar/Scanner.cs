@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Diagnostics;
-using System.IO;
-using System.Media;
-using System.Text;
 
 namespace Rio_WoW_Radar.Radar
 {
@@ -30,15 +26,15 @@ namespace Rio_WoW_Radar.Radar
         public ArrayList Objects = new ArrayList();
 
         public uint KilledMobs = 0;
-        public uint LastKilledMobs = uint.MaxValue; 
+        public uint LastKilledMobs = uint.MaxValue;
 
-        public string CurrentZone = "";
         public uint CurrentZoneID = 0;
+        public string CurrentZoneName = "";
 
       
         public Scanner()
         {
-            WowReader.SetProcess("Wow", Memory.Mode.ALL);
+            WowReader.SetProcess("Wow", Memory.Mode.READ);
 
             InitAddresses();
         }
@@ -100,6 +96,7 @@ namespace Rio_WoW_Radar.Radar
         public void Ping(bool NpcEnabled, bool PlayersEnabled, bool FriendlyPlayersEnabled, bool ObjectsEnabled)
         {
             //Обнуляем и обнуляем все
+            bool MyPlayersFinded = false;
             TotalWowObjects = 0;
             ReadedWowObjects = 0;
             All.Clear();
@@ -115,9 +112,10 @@ namespace Rio_WoW_Radar.Radar
             //Получаем гуид последнего выбранного юнита
             LastTargetGuid = WowReader.ReadULong((UIntPtr)Offsets.Client.StaticLastTargetGUID);
 
+
             //Получаем текущую зону
             CurrentZoneID = GetCurrZoneID();
-            CurrentZone = Enums.ZonesDB.GetTextOfZone(CurrentZoneID);
+            CurrentZoneName = Enums.ZonesDB.GetTextOfZone(CurrentZoneID);
 
 
             //Читаем нашего игрока
@@ -135,7 +133,7 @@ namespace Rio_WoW_Radar.Radar
                     UIntPtr UnitFieldsAddress = WowReader.ReadPointer(BaseAddress + Offsets.Object.UnitFields);
                     short Type = (short)WowReader.ReadUInt32(BaseAddress + Offsets.Object.Type);
 
-                    if (Type == Program.WOW_PLAYER)  //PLAYER
+                    if (Type == (int)Defines.ObjectType.PLAYER)  //PLAYER
                     {
                         float XPos = WowReader.ReadFloat(BaseAddress + Offsets.Unit.Pos_X);
                         float YPos = WowReader.ReadFloat(BaseAddress + Offsets.Unit.Pos_Y);
@@ -156,7 +154,7 @@ namespace Rio_WoW_Radar.Radar
 
                         Target = new PlayerObject(Guid, XPos, YPos, ZPos, Rotation, CurrObject_BaseAddress, UnitFieldsAddress, Type, Name, Race, Class, Gender, CurrentHealth, MaxHealth, CurrentEnergy, MaxEnergy, Level);
                     }
-                    else if (Type == Program.WOW_UNIT)  //NPC
+                    else if (Type == (int)Defines.ObjectType.UNIT)  //NPC
                     {
                         uint NpcID = WowReader.ReadUInt32(UnitFieldsAddress + Offsets.Unit.NpcID);
 
@@ -198,7 +196,7 @@ namespace Rio_WoW_Radar.Radar
 
                 switch (Type)
                 {
-                    case 3: //NPC!
+                    case (int)Defines.ObjectType.UNIT: //NPC!
                         {
                             if (!NpcEnabled) { goto Skip; }  //Если нпс выключены, пропускаем
 
@@ -226,8 +224,17 @@ namespace Rio_WoW_Radar.Radar
                             All.Add(npc);
                         }
                         break;
-                    case 4: //PLAYER
+                    case (int)Defines.ObjectType.PLAYER: //PLAYER
                         {
+                            ulong Guid = WowReader.ReadUInt64(CurrObject_BaseAddress + Offsets.Object.Guid);
+
+                            //Проходим если это мы
+                            if (Guid == MyPlayer.Guid)
+                            {
+                                MyPlayersFinded = true;
+                                goto Skip;
+                            } 
+
                             //Если игроки выключены, пропускаем
                             if (!PlayersEnabled) { goto Skip; }
 
@@ -236,10 +243,6 @@ namespace Rio_WoW_Radar.Radar
                             //Скипаем союзников, если такая настройка включена
                             if (!FriendlyPlayersEnabled & !Defines.IsEnemy(Race, MyPlayer.Race)) { goto Skip; }
 
-
-                            ulong Guid = WowReader.ReadUInt64(CurrObject_BaseAddress + Offsets.Object.Guid);
-
-                            if (Guid == MyPlayer.Guid) { goto Skip; }  //Пропускаем если это мы
 
                             float XPos = WowReader.ReadFloat(CurrObject_BaseAddress + Offsets.Unit.Pos_X);
                             float YPos = WowReader.ReadFloat(CurrObject_BaseAddress + Offsets.Unit.Pos_Y);
@@ -265,7 +268,7 @@ namespace Rio_WoW_Radar.Radar
                             All.Add(player);
                         }
                         break;
-                    case 5:  //OBJECTS
+                    case (int)Defines.ObjectType.GAMEOBJ:  //OBJECTS
                         {
                             if (!ObjectsEnabled) { goto Skip; }  //Если объекты выключены, пропускаем
 
@@ -291,6 +294,13 @@ namespace Rio_WoW_Radar.Radar
                 CurrObject_BaseAddress = NextObject(CurrObject_BaseAddress);
             }
            
+
+            //Если нашего игрока нету в списке
+            if (!MyPlayersFinded)
+            {
+                //Скорее всего что-то сбилось, реинициализируем адресса
+                InitAddresses();
+            }
         }
 
 
@@ -326,6 +336,7 @@ namespace Rio_WoW_Radar.Radar
         private string MobNameFromGuid(ulong Guid, uint NpcID)
         {
             //Эмиль пидоблас прикол
+            //Не забудьте переключить режим в Memory.Mode.ALL
             //{
                 //Иначе читаем и добавляем в кэш
                 //UIntPtr ObjectBase = GetObjectBaseByGuid(Guid);
@@ -439,6 +450,20 @@ namespace Rio_WoW_Radar.Radar
         public UIntPtr NextObject(UIntPtr unitAddress)
         {
             return WowReader.ReadPointer(unitAddress + Offsets.Client.NextObjectOffset);
+        }
+    }
+
+
+    //Класс-событие для новой зоны
+    public class ZoneChangedEventArgs : EventArgs
+    {
+        public uint NewZoneID { get; set; }
+        public string NewZoneName { get; set; }
+
+        public ZoneChangedEventArgs(uint NewZoneID, string NewZoneName)
+        {
+            this.NewZoneID = NewZoneID;
+            this.NewZoneName = NewZoneName;
         }
     }
 }
