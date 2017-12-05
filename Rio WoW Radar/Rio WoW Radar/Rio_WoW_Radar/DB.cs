@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
 using Microsoft.Xna.Framework;
+using Newtonsoft.Json;
 
 
 namespace Rio_WoW_Radar
@@ -125,22 +124,19 @@ namespace Rio_WoW_Radar
         {
             public class Ore
             {
-                //Имя и гуид
+                //Имя руды
                 public string Name { get; set; } = "Неизвестно";
 
                 //Ид
                 public uint ID { get; set; }
 
                 //Позиция
-                public Vector3 Position { get; set; }
+                public Vector2 Position { get; set; }
 
                 //Максимальная дистанция обнаружения
                 public float MaxSeeDistance { get; set; }
 
-                //Зона где был обнаружена руда
-                public string Zone { get; set; } = "";
-
-                //Последний раз где руда был замечен
+                //Последний раз где руда был замечена
                 public string LastSeen { get; set; } = "";
             }
 
@@ -149,26 +145,45 @@ namespace Rio_WoW_Radar
             {
                 float MaxDistance = 1;
 
-                for (int i = 0; i < OreList.Count; i++)
+                try  //Предохраняемся)
                 {
-                    try  //Предохраняемся
+                    foreach (var ores in OresDict)
                     {
-                        if (OreList[i].MaxSeeDistance > MaxDistance)
+                        for (int i = 0; i < ores.Value.Count; i++)
                         {
-                            MaxDistance = OreList[i].MaxSeeDistance;
+                            float currDist = ores.Value[i].MaxSeeDistance;
+
+                            if (currDist > MaxDistance)
+                            {
+                                MaxDistance = currDist;
+                            }
                         }
                     }
-                    catch { }
                 }
+                catch { }
 
                 return (float)Math.Round(MaxDistance, 2);
             }
 
+            //Получить список руды в конкретной зоне
+            public bool GetList(uint ZoneID, out List<Ore> list)
+            {
+                return OresDict.TryGetValue(ZoneID, out list);
+            }
 
+            //Есть ли зона в списке?
+            public bool ZoneExist(uint ZoneID)
+            {
+                List<Ore> temp = new List<Ore>();
+                return OresDict.TryGetValue(ZoneID, out temp);
+            }
+
+
+            //Максимальная дист. прорисовки из всех трав в списке
             public float MaxSeeDistance { get { return GetMaxDistance(); } }
-            public int OresCount { get { return OreList.Count; } }
 
-            public List<Ore> OreList = new List<Ore>();
+            //Список руды разбитая по зонам
+            public Dictionary<uint, List<Ore>> OresDict = new Dictionary<uint, List<Ore>>();
         }
 
 
@@ -176,22 +191,19 @@ namespace Rio_WoW_Radar
         {
             public class Herb
             {
-                //Имя и гуид
+                //Имя травы
                 public string Name { get; set; } = "Неизвестно";
 
                 //Ид
                 public uint ID { get; set; }
 
                 //Позиция
-                public Vector3 Position { get; set; }
+                public Vector2 Position { get; set; }
 
                 //Максимальная дистанция обнаружения
                 public float MaxSeeDistance { get; set; }
 
-                //Зона где был обнаружена травка
-                public string Zone { get; set; } = "";
-
-                //Последний раз где травка был замечен
+                //Последний раз где травка был замечена
                 public string LastSeen { get; set; } = "";
             }
 
@@ -200,26 +212,45 @@ namespace Rio_WoW_Radar
             {
                 float MaxDistance = 1;
 
-                for (int i = 0; i < HerbList.Count; i++)
+                try  //Предохраняемся)
                 {
-                    try  //Предохраняемся
+                    foreach (var herbs in HerbDict)
                     {
-                        if (HerbList[i].MaxSeeDistance > MaxDistance)
+                        for (int i = 0; i < herbs.Value.Count; i++)
                         {
-                            MaxDistance = HerbList[i].MaxSeeDistance;
+                            float currDist = herbs.Value[i].MaxSeeDistance;
+
+                            if (currDist > MaxDistance)
+                            {
+                                MaxDistance = currDist;
+                            }
                         }
                     }
-                    catch { }
                 }
+                catch { }
 
                 return (float)Math.Round(MaxDistance, 2);
             }
 
+            //Получить список травки в конкретной зоне
+            public bool GetList(uint ZoneID, out List<Herb> list)
+            {
+                return HerbDict.TryGetValue(ZoneID, out list);
+            }
 
+            //Есть ли зона в списке?
+            public bool ZoneExist(uint ZoneID)
+            {
+                List<Herb> temp = new List<Herb>();
+                return HerbDict.TryGetValue(ZoneID, out temp);
+            }
+
+
+            //Максимальная дист. прорисовки из всех трав в списке
             public float MaxSeeDistance { get { return GetMaxDistance(); } }
-            public int HerbsCount { get { return HerbList.Count; } }
-
-            public List<Herb> HerbList = new List<Herb>();
+            
+            //Список травок разбитая по зонам
+            public Dictionary<uint, List<Herb>> HerbDict = new Dictionary<uint, List<Herb>>();
         }
 
 
@@ -227,17 +258,14 @@ namespace Rio_WoW_Radar
         {
             public class Object
             {
-                //Ид
+                //Ид объекта
                 public uint ID { get; set; }
 
                 //Позиция
-                public Vector3 Position { get; set; }
+                public Vector2 Position { get; set; }
 
                 //Максимальная дистанция обнаружения
                 public float MaxSeeDistance { get; set; }
-
-                //Зона где был обнаружена травка
-                public string Zone { get; set; } = "";
 
                 //Последний раз где объект был замечен
                 public string LastSeen { get; set; } = "";
@@ -248,22 +276,45 @@ namespace Rio_WoW_Radar
             {
                 float MaxDistance = 1;
 
-                for (int i = 0; i < ObjectList.Count; i++)
+                try  //Предохраняемся)
                 {
-                    if (ObjectList[i].MaxSeeDistance > MaxDistance)
+                    foreach (var objects in ObjectsDict)
                     {
-                        MaxDistance = ObjectList[i].MaxSeeDistance;
+                        for (int i = 0; i < objects.Value.Count; i++)
+                        {
+                            float currDist = objects.Value[i].MaxSeeDistance;
+
+                            if (currDist > MaxDistance)
+                            {
+                                MaxDistance = currDist;
+                            }
+                        }
                     }
                 }
+                catch { }
 
                 return (float)Math.Round(MaxDistance, 2);
             }
 
+            //Получить список объектов в конкретной зоне
+            public bool GetList(uint ZoneID, out List<Object> list)
+            {
+                return ObjectsDict.TryGetValue(ZoneID, out list);
+            }
 
+            //Есть ли зона в списке?
+            public bool ZoneExist(uint ZoneID)
+            {
+                List<Object> temp = new List<Object>();
+                return ObjectsDict.TryGetValue(ZoneID, out temp);
+            }
+
+
+            //Максимальная дист. прорисовки из всех объектов в списке
             public float MaxSeeDistance { get { return GetMaxDistance(); } }
-            public int ObjectsCount { get { return ObjectList.Count; } }
 
-            public List<Object> ObjectList = new List<Object>();
+            //Список объектов разбитые по зонам
+            public Dictionary<uint, List<Object>> ObjectsDict = new Dictionary<uint, List<Object>>();
         }
 
 
@@ -278,84 +329,254 @@ namespace Rio_WoW_Radar
     public class DB
     {
         public static DataBase database = new DataBase();
-        private const string Players_FileName = "players.json";
-        private const string Ores_FileName = "ores.json";
-        private const string Herbs_FileName = "herbs.json";
-        private const string Objects_FileName = "objects.json";
+
+
+        private const string DB_Dir = "DB";
+
+        private const string Players_FileName = "Игроки.json";
+
+        private const string Players_Dir = "Игроки";
+        private const string Ores_Dir = "Руды";
+        private const string Herbs_Dir = "Травы";
+        private const string Objects_Dir = "Объекты";
+
+        public const string PlayersPath = DB_Dir + "\\" + Players_Dir;
+        public const string OresPath = DB_Dir + "\\" + Ores_Dir;
+        public const string HerbsPath = DB_Dir + "\\" + Herbs_Dir;
+        public const string ObjectsPath = DB_Dir + "\\" + Objects_Dir;
+
 
 
 
         //Сохранить базу данных
         public static void SaveDB()
         {
-            string players = JsonConvert.SerializeObject(database.Players, Formatting.Indented);
-            string ores = JsonConvert.SerializeObject(database.Ores, Formatting.Indented);
-            string herbs = JsonConvert.SerializeObject(database.Herbs, Formatting.Indented);
-            string objects = JsonConvert.SerializeObject(database.Objects, Formatting.Indented);
+            try
+            {
+                const string playersPath = DB_Dir + "\\" + Players_Dir;
+                const string oresPath = DB_Dir + "\\" + Ores_Dir;
+                const string herbsPath = DB_Dir + "\\" + Herbs_Dir;
+                const string objectsPath = DB_Dir + "\\" + Objects_Dir;
 
-            try { File.WriteAllText(Players_FileName, players); }
-            catch (Exception ex) { MessageBox.Show("Ошибка сохранения бд игроков: " + ex.Message + Environment.NewLine + ex.InnerException); }
+                //Проверяем, на месте ли папки?
+                if (!Directory.Exists(DB_Dir))
+                {
+                    //Создаем заново папки
+                    Directory.CreateDirectory(DB_Dir);
 
-            try { File.WriteAllText(Ores_FileName, ores); }
-            catch (Exception ex) { MessageBox.Show("Ошибка сохранения бд руд: " + ex.Message + Environment.NewLine + ex.InnerException); }
+                    Directory.CreateDirectory(playersPath);
+                    Directory.CreateDirectory(oresPath);
+                    Directory.CreateDirectory(herbsPath);
+                    Directory.CreateDirectory(objectsPath);
+                }
+                else
+                {
+                    if (!Directory.Exists(playersPath)) { Directory.CreateDirectory(playersPath); }
+                    if (!Directory.Exists(oresPath)) { Directory.CreateDirectory(oresPath); }
+                    if (!Directory.Exists(herbsPath)) { Directory.CreateDirectory(herbsPath); }
+                    if (!Directory.Exists(objectsPath)) { Directory.CreateDirectory(objectsPath); }
+                }
+            }
+            catch { Tools.MsgBox.Error("Нету доступа для создания папок!" + "\n" + "Невозможно сохранить бд!"); }
 
-            try { File.WriteAllText(Herbs_FileName, herbs); }
-            catch (Exception ex) { MessageBox.Show("Ошибка сохранения бд трав: " + ex.Message + Environment.NewLine + ex.InnerException); }
 
-            try { File.WriteAllText(Objects_FileName, objects); }
-            catch (Exception ex) { MessageBox.Show("Ошибка сохранения бд объектов: " + ex.Message + Environment.NewLine + ex.InnerException); }
+
+            //Первым делом сохраняем игроков
+            try
+            {
+                string serPlayers = JsonConvert.SerializeObject(database.Players, Formatting.Indented);
+
+                File.WriteAllText(DB_Dir + "\\" + Players_Dir + "\\" + Players_FileName, serPlayers);
+            }
+            catch (Exception ex)
+            {
+                Tools.MsgBox.Exception(ex, "Ошибка сериализации или записи списка игроков!");
+            }
+
+
+            //Сохраняем руды
+            foreach (KeyValuePair<uint, List<DataBase.cOres.Ore>> dictVal in database.Ores.OresDict)
+            {
+                string zoneName = "";
+
+                try
+                {
+                    uint ZoneID = dictVal.Key;
+
+                    if (ZoneID != 0)
+                    {
+                        //Получаем имя зоны
+                        zoneName = Enums.ZonesDB.GetTextOfZone(dictVal.Key);
+
+                        //Сериализуем
+                        string serZone = JsonConvert.SerializeObject(dictVal.Value, Formatting.Indented);
+
+                        //Записываем в файл
+                        File.WriteAllText(DB_Dir + "\\" + Ores_Dir + "\\" + zoneName + ".json", serZone);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Tools.MsgBox.Exception(ex, "Ошибка сериализации или записи списка руды для зоны: " + zoneName);
+                }
+            }
+
+
+            //Сохраняем травы
+            foreach (KeyValuePair<uint, List<DataBase.cHerbs.Herb>> dictVal in database.Herbs.HerbDict)
+            {
+                string zoneName = "";
+
+                try
+                {
+                    uint ZoneID = dictVal.Key;
+
+                    if (ZoneID != 0)
+                    {
+                        //Получаем имя зоны
+                        zoneName = Enums.ZonesDB.GetTextOfZone(dictVal.Key);
+
+                        //Сериализуем
+                        string serZone = JsonConvert.SerializeObject(dictVal.Value, Formatting.Indented);
+
+
+                        //Записываем в файл
+                        File.WriteAllText(DB_Dir + "\\" + Herbs_Dir + "\\" + zoneName + ".json", serZone);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Tools.MsgBox.Exception(ex, "Ошибка сериализации или записи списка трав для зоны: " + zoneName);
+                }
+            }
+
+
+            //Сохраняем объекты
+            foreach (KeyValuePair<uint, List<DataBase.cObjects.Object>> dictVal in database.Objects.ObjectsDict)
+            {
+                string zoneName = "";
+
+                try
+                {
+                    uint ZoneID = dictVal.Key;
+
+                    if (ZoneID != 0)
+                    {
+                        //Получаем имя зоны
+                        zoneName = Enums.ZonesDB.GetTextOfZone(ZoneID);
+
+                        //Сериализуем
+                        string serZone = JsonConvert.SerializeObject(dictVal.Value, Formatting.Indented);
+
+
+                        //Записываем в файл
+                        File.WriteAllText(DB_Dir + "\\" + Objects_Dir + "\\" + zoneName + ".json", serZone);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Tools.MsgBox.Exception(ex, "Ошибка сериализации или записи списка объектов для зоны: " + zoneName);
+                }
+            }
         }
 
 
         //Загрузить базу данных
         public static void LoadDB()
         {
-            if (File.Exists(Players_FileName))
+            //Если папка с бд есть
+            if (Directory.Exists(DB_Dir))
             {
-                string players = "";
-
-                try { players = File.ReadAllText(Players_FileName); }
-                catch (Exception ex) { MessageBox.Show("Ошибка загрузки бд игроков: " + ex.Message + Environment.NewLine + ex.InnerException); return; }
-
-                database.Players = JsonConvert.DeserializeObject<DataBase.cPlayers>(players);
-            }
-
-
-            if (File.Exists(Ores_FileName))
-            {
-                string ores = "";
-
-                try { ores = File.ReadAllText(Ores_FileName); }
-                catch (Exception ex) { MessageBox.Show("Ошибка загрузки бд руд: " + ex.Message + Environment.NewLine + ex.InnerException); return; }
-
-                database.Ores = JsonConvert.DeserializeObject<DataBase.cOres>(ores);
-            }
+                //Загружаем игроков
+                if (Directory.Exists(PlayersPath))
+                {
+                    if (File.Exists(PlayersPath + "\\" + Players_FileName))
+                    {
+                        try
+                        {
+                            string readedPlayers = File.ReadAllText(PlayersPath + "\\" + Players_FileName);
+                            database.Players = JsonConvert.DeserializeObject<DataBase.cPlayers>(readedPlayers);
+                        }
+                        catch (Exception ex) { Tools.MsgBox.Exception(ex, "Ошибка загрузки бд игроков!"); }
+                    }
+                }
 
 
-            if (File.Exists(Herbs_FileName))
-            {
-                string herbs = "";
 
-                try { herbs = File.ReadAllText(Herbs_FileName); }
-                catch (Exception ex) { MessageBox.Show("Ошибка загрузки бд трав: " + ex.Message + Environment.NewLine + ex.InnerException); return; }
+                //Загружаем руды
+                {
+                    Dictionary<uint, List<DataBase.cOres.Ore>> oresDict = new Dictionary<uint, List<DataBase.cOres.Ore>>();
+                    if (LoadListsFromDir(OresPath, ref oresDict))
+                    {
+                        database.Ores.OresDict = oresDict;
+                    }
+                }
 
-                database.Herbs = JsonConvert.DeserializeObject<DataBase.cHerbs>(herbs);
-            }
+
+                //Загружаем травы
+                {
+                    Dictionary<uint, List<DataBase.cHerbs.Herb>> herbsDict = new Dictionary<uint, List<DataBase.cHerbs.Herb>>();
+                    if (LoadListsFromDir(HerbsPath, ref herbsDict))
+                    {
+                        database.Herbs.HerbDict = herbsDict;
+                    }
+                }
 
 
-            if (File.Exists(Objects_FileName))
-            {
-                string objects = "";
-
-                try { objects = File.ReadAllText(Herbs_FileName); }
-                catch (Exception ex) { MessageBox.Show("Ошибка загрузки бд объектов: " + ex.Message + Environment.NewLine + ex.InnerException); return; }
-
-                database.Objects = JsonConvert.DeserializeObject<DataBase.cObjects>(objects);
+                //Загружаем объекты
+                {
+                    Dictionary<uint, List<DataBase.cObjects.Object>> objectsDict = new Dictionary<uint, List<DataBase.cObjects.Object>>();
+                    if (LoadListsFromDir(ObjectsPath, ref objectsDict))
+                    {
+                        database.Objects.ObjectsDict = objectsDict;
+                    }
+                }
             }
         }
 
 
+        //Более чем гениальная херня которую я делал!
+        static bool LoadListsFromDir<T>(string path, ref Dictionary<uint, List<T>> tempDict)
+        {
+            //Загружаем травы
+            if (Directory.Exists(path))
+            {
+                //Сквозь все файлы .json в папке с рудой
+                FileInfo[] files = new DirectoryInfo(path).GetFiles("*.json");
+                foreach (FileInfo file in files)
+                {
+                    try
+                    {
+                        //Читаем файл зоны
+                        string readedZone = File.ReadAllText(file.FullName);
 
+                        //Получаем ид зоны из имя файла
+                        string zoneName = Path.GetFileNameWithoutExtension(file.Name);
+                        uint ZoneID = Enums.ZonesDB.GetIdFromText(zoneName);
+                        if (ZoneID != 0) //Если такая зона есть
+                        {
+                            //Десериализуем
+                            List<T> oresForZone = JsonConvert.DeserializeObject<List<T>>(readedZone);
+
+                            //Устанавливаем
+                            tempDict[ZoneID] = oresForZone;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Tools.MsgBox.Exception(ex, "Ошибка загрузки файла для зоны: " + path + "\n" + "Возможно файл поврежден!");
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+
+        
+        //Добавить игрока или обновить его в бд
         public static void AddOrUpdatePlayer(DataBase.cPlayers.Player item)
         {
             if (item.GUID != 0)
@@ -382,7 +603,7 @@ namespace Rio_WoW_Radar
 
 
                         //Обновляем последнюю позицию
-                        database.Players.PlayerList[i].LastPos = Tools.RoundVector3(item.LastPos, 2);
+                        database.Players.PlayerList[i].LastPos = Tools.Vec.Round(item.LastPos, 2);
 
                         //Обновляем уровень в списке уровней
                         UpdateLevel(i, item.LvL);
@@ -404,95 +625,129 @@ namespace Rio_WoW_Radar
         }
 
 
-
-        public static void AddOrUpdateOre(DataBase.cOres.Ore item)
+        //Добавить руду в бд или обновить её в бд
+        public static void AddOrUpdateOre(uint ZoneID, DataBase.cOres.Ore item)
         {
-            for (int i = 0; i < database.Ores.OresCount; i++)
+            if (database.Ores.ZoneExist(ZoneID))
             {
-                bool inRadius = Tools.Vector3InRadius(database.Ores.OreList[i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
-                if (inRadius)
+                for (int i = 0; i < database.Ores.OresDict[ZoneID].Count; i++)
                 {
-                    //Установка позиции
-                    database.Ores.OreList[i].Position = item.Position;
+                    if (database.Ores.OresDict[ZoneID][i].ID == item.ID) //Отсеиваем мусор
+                    {
+                        bool inRadius = Tools.Vec.InRadius(database.Ores.OresDict[ZoneID][i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
+                        if (inRadius)
+                        {
+                            //Установка позиции
+                            database.Ores.OresDict[ZoneID][i].Position = item.Position;
 
-                    //Обновляем максимальную дистанцию отрисовки
-                    if (item.MaxSeeDistance > database.Ores.OreList[i].MaxSeeDistance)
-                    { database.Ores.OreList[i].MaxSeeDistance = item.MaxSeeDistance; }
+                            //Обновляем максимальную дистанцию отрисовки
+                            if (item.MaxSeeDistance > database.Ores.OresDict[ZoneID][i].MaxSeeDistance)
+                            { database.Ores.OresDict[ZoneID][i].MaxSeeDistance = item.MaxSeeDistance; }
 
-                    //Устанавливаем текущее время
-                    if (item.LastSeen != "")
-                    { database.Ores.OreList[i].LastSeen = item.LastSeen; }
+                            //Устанавливаем текущее время
+                            if (item.LastSeen != "")
+                            { database.Ores.OresDict[ZoneID][i].LastSeen = item.LastSeen; }
 
-                    if (item.Zone != "")
-                    { database.Ores.OreList[i].Zone = item.Zone; }
 
-                    return;
+                            return;
+                        }
+                    }
                 }
-            }
 
-            //Если не нашли в базе данных, то значит добавляем новый экземпляр
-            database.Ores.OreList.Add(item);
+                //Если прошли цикл, значит это новая руда!
+                database.Ores.OresDict[ZoneID].Add(item);
+            }
+            else
+            {
+                //Если не нашли эту зону в списке, добавляем 
+                database.Ores.OresDict.Add(ZoneID, new List<DataBase.cOres.Ore>() { item });
+            }
         }
 
 
-        public static void AddOrUpdateHerb(DataBase.cHerbs.Herb item)
+        //Добавить траву в бд или обновить её в бд
+        public static void AddOrUpdateHerb(uint ZoneID, DataBase.cHerbs.Herb item)
         {
-            for (int i = 0; i < database.Herbs.HerbsCount; i++)
+            if (database.Herbs.ZoneExist(ZoneID))  //Если такая зона есть в списке зон
             {
-                bool inRadius = Tools.Vector3InRadius(database.Herbs.HerbList[i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
-                if (inRadius)
+                for (int i = 0; i < database.Herbs.HerbDict[ZoneID].Count; i++)
                 {
-                    //Установка позиции
-                    database.Herbs.HerbList[i].Position = item.Position;
+                    if (database.Herbs.HerbDict[ZoneID][i].ID == item.ID) //Отсеиваем мусор
+                    {
+                        bool inRadius = Tools.Vec.InRadius(database.Herbs.HerbDict[ZoneID][i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
+                        if (inRadius)
+                        {
+                            //Установка позиции
+                            database.Herbs.HerbDict[ZoneID][i].Position = item.Position;
 
-                    //Обновляем максимальную дистанцию отрисовки
-                    if (item.MaxSeeDistance > database.Herbs.HerbList[i].MaxSeeDistance)
-                    { database.Herbs.HerbList[i].MaxSeeDistance = item.MaxSeeDistance; }
+                            //Обновляем максимальную дистанцию отрисовки
+                            if (item.MaxSeeDistance > database.Herbs.HerbDict[ZoneID][i].MaxSeeDistance)
+                            { database.Herbs.HerbDict[ZoneID][i].MaxSeeDistance = item.MaxSeeDistance; }
 
-                    //Устанавливаем текущее время
-                    if (item.LastSeen != "")
-                    { database.Herbs.HerbList[i].LastSeen = item.LastSeen; }
+                            //Устанавливаем текущее время
+                            if (item.LastSeen != "")
+                            { database.Herbs.HerbDict[ZoneID][i].LastSeen = item.LastSeen; }
 
-                    if (item.Zone != "")
-                    { database.Herbs.HerbList[i].Zone = item.Zone; }
 
-                    return;
+                            return;
+                        }
+                    }
                 }
-            }
 
-            //Если не нашли в базе данных, то значит добавляем новый экземпляр
-            database.Herbs.HerbList.Add(item);
+                //Если прошли цикл, значит это новая трава!
+                database.Herbs.HerbDict[ZoneID].Add(item);
+            }
+            else
+            {
+                //Если не нашли эту зону в списке, добавляем 
+                database.Herbs.HerbDict.Add(ZoneID, new List<DataBase.cHerbs.Herb>() { item });
+            }
         }
 
 
-        public static void AddOrUpdateObject(DataBase.cObjects.Object item)
+        //Добавить объект в бд или обновить её в бд
+        public static void AddOrUpdateObject(uint ZoneID, DataBase.cObjects.Object item)
         {
-            for (int i = 0; i < database.Objects.ObjectsCount; i++)
+            if (database.Objects.ZoneExist(ZoneID))  //Если такая зона есть в списке зон
             {
-                bool inRadius = Tools.Vector3InRadius(database.Objects.ObjectList[i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
-                if (inRadius)
+                if (Enums.ObjDB.HasInBlackList(item.ID)) //Не добавляем всякую парашу
                 {
-                    //Установка позиции
-                    database.Objects.ObjectList[i].Position = item.Position;
+                    for (int i = 0; i < database.Objects.ObjectsDict[ZoneID].Count; i++)
+                    {
+                        if (database.Objects.ObjectsDict[ZoneID][i].ID == item.ID) //Отсеиваем мусор
+                        {
+                            bool inRadius = Tools.Vec.InRadius(database.Objects.ObjectsDict[ZoneID][i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
+                            if (inRadius)
+                            {
+                                //Установка позиции
+                                database.Objects.ObjectsDict[ZoneID][i].Position = item.Position;
 
-                    //Обновляем максимальную дистанцию отрисовки
-                    if (item.MaxSeeDistance > database.Objects.ObjectList[i].MaxSeeDistance)
-                    { database.Objects.ObjectList[i].MaxSeeDistance = item.MaxSeeDistance; }
+                                //Обновляем максимальную дистанцию отрисовки
+                                if (item.MaxSeeDistance > database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance)
+                                { database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance = item.MaxSeeDistance; }
 
-                    //Устанавливаем текущее время
-                    if (item.LastSeen != "")
-                    { database.Objects.ObjectList[i].LastSeen = item.LastSeen; }
+                                //Устанавливаем текущее время
+                                if (item.LastSeen != "")
+                                { database.Objects.ObjectsDict[ZoneID][i].LastSeen = item.LastSeen; }
 
-                    if (item.Zone != "")
-                    { database.Objects.ObjectList[i].Zone = item.Zone; }
 
-                    return;
+                                return;
+                            }
+                        }
+                    }
+
+
+                    //Если прошли цикл, значит это новая трава!
+                    database.Objects.ObjectsDict[ZoneID].Add(item);
                 }
             }
-
-            //Если не нашли в базе данных, то значит добавляем новый экземпляр
-            database.Objects.ObjectList.Add(item);
+            else
+            {
+                //Если не нашли эту зону в списке зон, добавляем 
+                database.Objects.ObjectsDict.Add(ZoneID, new List<DataBase.cObjects.Object>() { item });
+            }
         }
+    
 
 
         //Обновление уровня для игрока
@@ -547,7 +802,5 @@ namespace Rio_WoW_Radar
                 }
             }
         }
-
-        
     }
 }

@@ -55,7 +55,7 @@ namespace Rio_WoW_Radar
             string players = Game1.settings.PlayersEnabled ? Game1.scanner.Players.Count.ToString() : "Disabled";
             string npcs = Game1.settings.NpcEnabled ? Game1.scanner.Npcs.Count.ToString() : "Disabled";
             string objects = Game1.settings.ObjectsEnabled ? Game1.scanner.Objects.Count.ToString() : "Disabled";
-            string currZone = Game1.scanner.CurrentZone;
+            string currZone = Game1.scanner.CurrentZoneName;
 
             string XPos = Math.Round(Game1.scanner.MyPlayer.XPos, 2).ToString();
             string YPos = Math.Round(Game1.scanner.MyPlayer.YPos, 2).ToString();
@@ -79,8 +79,8 @@ namespace Rio_WoW_Radar
                 }
             }
 
-            sb.DrawTextForInfo("PingTime: " + Tools.MsFromTicks(Game1.PingTime) + " ms", new Vector2(8,32), 14.0f);
-            sb.DrawTextForInfo("DbTime: " + Tools.MsFromTicks(Game1.DbTime) + " ms", new Vector2(8, 48), 14.0f);
+            sb.DrawTextForInfo("Ping Time: " + Tools.MsFromTicks(Game1.PingTime) + " ms", new Vector2(8,32), 14.0f);
+            sb.DrawTextForInfo("DbUpdate Time: " + Tools.MsFromTicks(Game1.DbUpdateTime) + " ms", new Vector2(8, 48), 14.0f);
             sb.DrawTextForInfo("-", new Vector2(8, 64), 14.0f);
             sb.DrawTextForInfo("TotalObjects: " + Game1.scanner.TotalWowObjects, new Vector2(8, 80), 14.0f);
             sb.DrawTextForInfo("ReadedObjects: " + Game1.scanner.ReadedWowObjects, new Vector2(8, 96), 14.0f);

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
 using System.Globalization;
 
 using Microsoft.Xna.Framework;
@@ -7,8 +9,42 @@ using Microsoft.Xna.Framework;
 
 namespace Rio_WoW_Radar
 {
-    class Tools
+    public static class Tools
     {
+        public static class MsgBox
+        {
+            public static void Error(string text)
+            { MessageBox.Show(text, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+            public static void Error(string text, string caption)
+            { MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+            public static void Warning(string text)
+            { MessageBox.Show(text, "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+
+            public static void Warning(string text, string caption)
+            { MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+
+            public static void Info(string text)
+            { MessageBox.Show(text, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
+            public static void Info(string text, string caption)
+            { MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information); }
+
+
+            public static void Exception(Exception ex)
+            {
+                MessageBox.Show("Необработаное исключение! - [" + ex.Message + " | " + ex.InnerException + "];", "Необработаное исключение!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            public static void Exception(Exception ex, string text)
+            {
+                MessageBox.Show(text + " - [" + ex.Message + " | " + ex.InnerException + "];", "Необрабатоное исключение!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
         public static string GetNowTime()
         {
             return DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
@@ -17,29 +53,6 @@ namespace Rio_WoW_Radar
         public static DateTime GetTimeFromString(string Time)
         {
             return DateTime.ParseExact(Time, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-        }
-
-
-
-        public static Vector2 RoundVector2(Vector2 vector, int decimals)
-        {
-            return new Vector2((float)Math.Round(vector.X, decimals), (float)Math.Round(vector.Y, decimals));
-        }
-
-        public static Vector3 RoundVector3(Vector3 vector, int decimals)
-        {
-            return new Vector3((float)Math.Round(vector.X, decimals), (float)Math.Round(vector.Y, decimals), (float)Math.Round(vector.Z, decimals));
-        }
-
-
-        public static bool Vector2InRadius(Vector2 vector1, Vector2 vector2, float radius)
-        {
-            return Vector2.Distance(vector1, vector2) <= radius;
-        }
-
-        public static bool Vector3InRadius(Vector3 vector1, Vector3 vector2, float radius)
-        {
-            return Vector3.Distance(vector1, vector2) <= radius;
         }
 
 
@@ -126,6 +139,32 @@ namespace Rio_WoW_Radar
         public static double DegreeToRadian(double angle)
         {
             return Math.PI * angle / 180.0;
-        }   
+        }
+
+
+
+        public static class Vec
+        {
+            public static Vector2 Round(Vector2 vec, int decimals)
+            {
+                return new Vector2((float)Math.Round(vec.X, decimals), (float)Math.Round(vec.Y, decimals));
+            }
+
+            public static Vector3 Round(Vector3 vec, int decimals)
+            {
+                return new Vector3((float)Math.Round(vec.X, decimals), (float)Math.Round(vec.Y, decimals), (float)Math.Round(vec.Z, decimals));
+            }
+
+
+            public static bool InRadius(Vector2 vec, Vector2 vector, float radius)
+            {
+                return Vector2.Distance(vec, vector) <= radius;
+            }
+
+            public static float Distance(Vector2 vec, Vector2 vector)
+            {
+                return (float)Math.Round(Vector2.Distance(vec, vector));
+            }
+        }
     }
 }

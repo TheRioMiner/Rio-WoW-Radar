@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
@@ -87,7 +86,7 @@ namespace Rio_WoW_Radar
                     string Class = Defines.GetTextOfClass(player.Class);
                     string Gender = player.Gender == 0 ? "М" : player.Gender == 1 ? "Ж" : null;
 
-                    string LastPos = Tools.RoundVector3(player.LastPos, 2).ToString().Replace("{", "").Replace("}", "");
+                    string LastPos = Tools.Vec.Round(player.LastPos, 2).ToString().Replace("{", "").Replace("}", "");
                     string LastSeen = player.LastSeen;
                     string LastZoneID = Enums.ZonesDB.GetTextOfZone(player.LastZoneID);
 
@@ -110,7 +109,11 @@ namespace Rio_WoW_Radar
                     DatabaseToShow.Игроки.Add(new DBtoShow.Игрок() { Ник = Nick, Сторона = Team, GUID = GUID, ЛвЛ = LvL.ToString(), Раса = Race, Класс = Class, Пол = Gender, ПоследняяПозиция = LastPos, ПоследнееОбнаружение = LastSeen, ПоследняяЗона = LastZoneID, Уровни = Levels, Обнаружения = Seens });
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Ошибка отражения основной БД в БД для отображения: " + ex.Message); }
+            catch (Exception ex)
+            {
+                Tools.MsgBox.Exception(ex, "Ошибка отражения основной БД в БД для просмотра.");
+                return;
+            }
 
 
 
@@ -118,31 +121,18 @@ namespace Rio_WoW_Radar
             {
                 XmlSerializer ser = new XmlSerializer(typeof(DBtoShow));
 
-                string dbName = "players.xml";
-                if (!File.Exists(dbName))
+                string dbPath = DB.PlayersPath + "\\" + "Игроки.xml";
+                using (Stream fStream = new FileStream(dbPath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None))
                 {
-                    using (Stream fStream = new FileStream(dbName, FileMode.CreateNew, FileAccess.Write, FileShare.None))
-                    {
-                        ser.Serialize(fStream, DatabaseToShow);
-                        fStream.Flush();
-                        fStream.Close();
-                    }
-                }
-                else
-                {
-                    using (Stream fStream = new FileStream(dbName, FileMode.Truncate, FileAccess.Write, FileShare.None))
-                    {
-                        ser.Serialize(fStream, DatabaseToShow);
-                        fStream.Flush();
-                        fStream.Close();
-                    }
+                    ser.Serialize(fStream, DatabaseToShow);
+                    fStream.Flush();
+                    fStream.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка сохранения БД для отображения: " + ex.Message);
+                Tools.MsgBox.Exception(ex, "Ошибка сохранения бд игроков для просмотра.");
             }
         }
-
     }
 }
