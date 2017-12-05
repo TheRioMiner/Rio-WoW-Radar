@@ -200,5 +200,29 @@ namespace Rio_WoW_Radar.Enums
             Name_And_TextureName temp = new Name_And_TextureName();
             return RareObjectsDB.TryGetValue(ObjectID, out temp);
         }
+
+
+        //Это ненужный объект?
+        public static bool HasInBlackList(uint ObjectID)
+        {
+            //Всякая параша типа кораблей и т.п
+            //У них прорисовка через весь континент!
+            switch (ObjectID)
+            {
+                case 176495:  return true;  //Дирижабль (Лиловая Принцесса)
+                case 181689:  return true;  //Дирижабль Орды ("Поцелуй небес")
+                case 175080:  return true;  //Дирижабль  //Ага))
+                case 164871:  return true;  //Дирижабль  //ыыгыы))0
+                case 20808:   return true;  //Корабль ("Девичий каприз")
+                case 190536:  return true;  //Корабль, ледокол (Гордость Штормграда)
+                case 181688:  return true;  //Корабль, ледокол (Северное копье)
+                case 176231:  return true;  //Корабль "Леди Мели"
+
+                case 176310:  return true;  //Безмятежный берег?!
+
+                default:
+                    return false;
+            }
+        }
     }
 }
