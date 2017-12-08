@@ -43,8 +43,6 @@ namespace Rio_WoW_Radar
         }
 
 
-        public static float RadarZoom = 3.0f;
-
         public static int RadarHeight
         {
             get { return graphics.GraphicsDevice.Viewport.Height; }
@@ -68,13 +66,41 @@ namespace Rio_WoW_Radar
 
             try
             {
-                scanner = new Radar.Scanner();  //Инициализируем сканнер
+                //Проверяем, один ли клиент запущен
+                Process[] processesByName = Process.GetProcessesByName("Wow");
+                if (processesByName.Length > 1)
+                {
+                    //Если больше 1 клиента запущено, то делаем диалог какой выбрать клиент для обработки
+                    using (Forms.Process_Select procSelect = new Forms.Process_Select())
+                    {
+                        procSelect.ShowDialog();
+
+                        if (procSelect.pid != -1)
+                        {
+                            scanner = new Radar.Scanner(procSelect.pid);
+                        }
+                        else
+                        {
+                            this.Exit();
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    //Инициализируем сканнер
+                    scanner = new Radar.Scanner();
+                }
             }
             catch
             {
                 MessageBox.Show("WoW не может быть открыт, зайдите в мир!", "Ошибка!", MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 this.Exit();
             }
+
+
+            //Загружаем настройки
+            Settings.LoadSettings();
 
 
             //Инициализируем гуи
@@ -110,6 +136,7 @@ namespace Rio_WoW_Radar
                 this.Exit();
             }
         }
+
 
 
         protected override void UnloadContent()
@@ -298,6 +325,8 @@ namespace Rio_WoW_Radar
     
         protected override void Draw(GameTime gameTime)
         {
+            float RadarZoom = settings.RadarZoom;
+
             Stopwatch drawTime = Stopwatch.StartNew();
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
@@ -495,6 +524,19 @@ namespace Rio_WoW_Radar
                                                             break;
                                                         }
                                                     }
+                                                    else 
+                                                    {
+                                                        bool hasOre = Enums.ObjDB.HasOre(obj.ObjectId);
+                                                        bool hasHerb = Enums.ObjDB.HasHerb(obj.ObjectId);
+                                                        bool hasRare = Enums.ObjDB.HasRareObject(obj.ObjectId);
+                                                        bool hasBlacklist = Enums.ObjDB.HasInBlackList(obj.ObjectId);
+
+                                                        if (!hasOre & !hasHerb & !hasRare & !hasBlacklist) //Если это обычный объект
+                                                        {
+                                                            breaked = true;
+                                                            break;
+                                                        }
+                                                    }
                                                 }
 
                                                 if (!breaked)
@@ -578,65 +620,77 @@ namespace Rio_WoW_Radar
                         #region Отрисовка объектов которые видим
                         foreach (Radar.OtherObject obj in scanner.Objects)
                         {
-                            //Если отрисовываем травы
-                            if (settings.herbs.Draw)
+                            Enums.Name_And_TextureName finded = new Enums.Name_And_TextureName();
+                            if (Enums.ObjDB.GetHerb(obj.ObjectId, ref finded))  //Если это травка
                             {
-                                Enums.Name_And_TextureName finded = new Enums.Name_And_TextureName();
-                                if (Enums.ObjDB.GetHerb(obj.ObjectId, ref finded))
+                                if (settings.herbs.Draw) //Если отрисовываем травы, то рисуем уже
                                 {
                                     float XPos = (scanner.MyPlayer.XPos - obj.XPos) * RadarZoom + RadarWidth / 2;
                                     float YPos = (scanner.MyPlayer.YPos - obj.YPos) * RadarZoom + RadarHeight / 2;
 
                                     int Size = settings.herbs.Size;
-                                    Texture2D Texture = Textures.GetTexture(finded.textureName);
                                     Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
 
-                                    spriteBatch.DrawTexture(Texture, TextureDest);
+                                    spriteBatch.DrawTexture(finded.textureName, TextureDest);
                                     spriteBatch.DrawText(finded.name, new Vector2(XPos, YPos + Size), settings.herbs.FontSize, settings.herbs.Color);
                                 }
                             }
-
-
-                            //Если отрисовываем руды
-                            if (settings.ores.Draw)
+                            else if (Enums.ObjDB.GetOre(obj.ObjectId, ref finded)) //Если это руда
                             {
-                                Enums.Name_And_TextureName finded = new Enums.Name_And_TextureName();
-                                if (Enums.ObjDB.GetOre(obj.ObjectId, ref finded))
+                                if (settings.ores.Draw)  //Если отрисовываем травы, то рисуем уже
                                 {
                                     float XPos = (scanner.MyPlayer.XPos - obj.XPos) * RadarZoom + RadarWidth / 2;
                                     float YPos = (scanner.MyPlayer.YPos - obj.YPos) * RadarZoom + RadarHeight / 2;
 
                                     int Size = settings.ores.Size;
-                                    Texture2D Texture = Textures.GetTexture(finded.textureName);
                                     Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
 
-                                    spriteBatch.DrawTexture(Texture, TextureDest);
+                                    spriteBatch.DrawTexture(finded.textureName, TextureDest);
                                     spriteBatch.DrawText(finded.name, new Vector2(XPos, YPos + Size), settings.ores.FontSize, settings.ores.Color);
                                 }
                             }
-
-
-                            //Если отрисовываем остальные объекты
-                            if (settings.rareobjects.Draw)
+                            else if (Enums.ObjDB.GetRareObject(obj.ObjectId, ref finded))  //Если это редкий объект
                             {
-                                Enums.Name_And_TextureName finded = new Enums.Name_And_TextureName();
-                                if (Enums.ObjDB.GetRareObject(obj.ObjectId, ref finded))
+                                if (settings.rareobjects.Draw) //Если отрисовываем редкие объекты, то рисуем уже
                                 {
                                     float XPos = (scanner.MyPlayer.XPos - obj.XPos) * RadarZoom + RadarWidth / 2;
                                     float YPos = (scanner.MyPlayer.YPos - obj.YPos) * RadarZoom + RadarHeight / 2;
 
                                     int Size = settings.rareobjects.Size;
-                                    Texture2D Texture = Textures.GetTexture(finded.textureName);
                                     Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
                                     Color randomColor = Tools.GetRandomColor(random);
 
                                     spriteBatch.DrawLine(new Vector2(XPos, YPos), new Vector2(Drawing.RadarCenterXPos, Drawing.RadarCenterYPos), randomColor, 2);
-                                    spriteBatch.DrawTexture(Texture, TextureDest, GlobalRotating);
+                                    spriteBatch.DrawTexture(finded.textureName, TextureDest, GlobalRotating);
                                     spriteBatch.DrawText(finded.name, new Vector2(XPos, YPos + Size), settings.rareobjects.FontSize, randomColor);
                                 }
                             }
+                            else  //Просто объекты
+                            {
+                                if (settings.otherobjects.Draw) //Если отрисовываем обычные объекты, то рисуем уже
+                                {
+                                    float XPos = (scanner.MyPlayer.XPos - obj.XPos) * RadarZoom + RadarWidth / 2;
+                                    float YPos = (scanner.MyPlayer.YPos - obj.YPos) * RadarZoom + RadarHeight / 2;
+
+                                    if (settings.otherobjects.DrawLines)
+                                    {
+                                        if (!Enums.ObjDB.HasInBlackList(obj.ObjectId))
+                                        {
+                                            Vector2 radarCenter = new Vector2(Drawing.RadarCenterXPos, Drawing.RadarCenterYPos);
+                                            Vector2 objPos = new Vector2(XPos, YPos);
+                                            spriteBatch.DrawLine(radarCenter, objPos, Color.AliceBlue, 1);
+                                        }
+                                    }
+
+                                    int Size = settings.otherobjects.Size;
+                                    Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
+                                    spriteBatch.DrawTexture("other_object", TextureDest);
+                                    spriteBatch.DrawText(obj.ObjectId.ToString(), new Vector2(XPos, YPos + Size), settings.rareobjects.FontSize, settings.otherobjects.Color);
+                                }
+                            }                 
                         }
                         #endregion
+
 
 
                         //Отрисовываем игроков
@@ -647,26 +701,26 @@ namespace Rio_WoW_Radar
 
 
 
-                        //Ищем объект
-                        foreach (object obj in scanner.All)
-                        {
-                            if (obj is Radar.OtherObject)
-                            {
-                                Radar.OtherObject otherObj = obj as Radar.OtherObject;
+                        //Ищем объект?
+                        //foreach (object obj in scanner.All)
+                        //{
+                        //    if (obj is Radar.OtherObject)
+                        //    {
+                        //        Radar.OtherObject otherObj = obj as Radar.OtherObject;
 
 
-                            }
-                            else if (obj is Radar.NpcObject)
-                            {
-                                Radar.NpcObject npc = obj as Radar.NpcObject;
+                        //    }
+                        //    else if (obj is Radar.NpcObject)
+                        //    {
+                        //        Radar.NpcObject npc = obj as Radar.NpcObject;
 
-                            }
-                            else if (obj is Radar.PlayerObject)
-                            {
-                                Radar.PlayerObject player = obj as Radar.PlayerObject;
+                        //    }
+                        //    else if (obj is Radar.PlayerObject)
+                        //    {
+                        //        Radar.PlayerObject player = obj as Radar.PlayerObject;
 
-                            }
-                        }
+                        //    }
+                        //}
 
 
                         //Отрисовываем цель
@@ -745,15 +799,16 @@ namespace Rio_WoW_Radar
             //Сохраняем кэш
             Caching.SaveCache();
 
-            //Сохранить базу данных для просмотра
-            //SerializatorToShow.SaveDBtoShow();
-
+            //Сохранить базу игроков для просмотра
+            SerializatorToShow.SaveDBtoShow();
 
             //Делаем аборт потоку))  (главное чтобы закон о абортах потокам не запретили!)
             if (BdUpdateThread != null)
             { BdUpdateThread.Abort(); }
 
 
+            //Сохраняем настройки
+            Settings.SaveSettings();
 
             base.OnExiting(sender, args);
         }

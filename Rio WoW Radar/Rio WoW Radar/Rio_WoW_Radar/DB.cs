@@ -412,7 +412,7 @@ namespace Rio_WoW_Radar
                         string serZone = JsonConvert.SerializeObject(dictVal.Value, Formatting.Indented);
 
                         //Записываем в файл
-                        File.WriteAllText(DB_Dir + "\\" + Ores_Dir + "\\" + zoneName + ".json", serZone);
+                        File.WriteAllText(OresPath + "\\" + zoneName + ".json", serZone);
                     }
                 }
                 catch (Exception ex)
@@ -441,7 +441,7 @@ namespace Rio_WoW_Radar
 
 
                         //Записываем в файл
-                        File.WriteAllText(DB_Dir + "\\" + Herbs_Dir + "\\" + zoneName + ".json", serZone);
+                        File.WriteAllText(HerbsPath + "\\" + zoneName + ".json", serZone);
                     }
                 }
                 catch (Exception ex)
@@ -470,7 +470,7 @@ namespace Rio_WoW_Radar
 
 
                         //Записываем в файл
-                        File.WriteAllText(DB_Dir + "\\" + Objects_Dir + "\\" + zoneName + ".json", serZone);
+                        File.WriteAllText(ObjectsPath + "\\" + zoneName + ".json", serZone);
                     }
                 }
                 catch (Exception ex)
@@ -708,38 +708,40 @@ namespace Rio_WoW_Radar
         //Добавить объект в бд или обновить её в бд
         public static void AddOrUpdateObject(uint ZoneID, DataBase.cObjects.Object item)
         {
-            if (database.Objects.ZoneExist(ZoneID))  //Если такая зона есть в списке зон
+            //Не добавляем всякую парашу
+            if (Enums.ObjDB.HasInBlackList(item.ID)) { return; }
+
+
+            //Если такая зона есть в списке зон
+            if (database.Objects.ZoneExist(ZoneID))
             {
-                if (Enums.ObjDB.HasInBlackList(item.ID)) //Не добавляем всякую парашу
+                for (int i = 0; i < database.Objects.ObjectsDict[ZoneID].Count; i++)
                 {
-                    for (int i = 0; i < database.Objects.ObjectsDict[ZoneID].Count; i++)
+                    if (database.Objects.ObjectsDict[ZoneID][i].ID == item.ID) //Отсеиваем мусор
                     {
-                        if (database.Objects.ObjectsDict[ZoneID][i].ID == item.ID) //Отсеиваем мусор
+                        bool inRadius = Tools.Vec.InRadius(database.Objects.ObjectsDict[ZoneID][i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
+                        if (inRadius)
                         {
-                            bool inRadius = Tools.Vec.InRadius(database.Objects.ObjectsDict[ZoneID][i].Position, item.Position, Game1.settings.nodes.RadiusCheck);
-                            if (inRadius)
-                            {
-                                //Установка позиции
-                                database.Objects.ObjectsDict[ZoneID][i].Position = item.Position;
+                            //Установка позиции
+                            database.Objects.ObjectsDict[ZoneID][i].Position = item.Position;
 
-                                //Обновляем максимальную дистанцию отрисовки
-                                if (item.MaxSeeDistance > database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance)
-                                { database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance = item.MaxSeeDistance; }
+                            //Обновляем максимальную дистанцию отрисовки
+                            if (item.MaxSeeDistance > database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance)
+                            { database.Objects.ObjectsDict[ZoneID][i].MaxSeeDistance = item.MaxSeeDistance; }
 
-                                //Устанавливаем текущее время
-                                if (item.LastSeen != "")
-                                { database.Objects.ObjectsDict[ZoneID][i].LastSeen = item.LastSeen; }
+                            //Устанавливаем текущее время
+                            if (item.LastSeen != "")
+                            { database.Objects.ObjectsDict[ZoneID][i].LastSeen = item.LastSeen; }
 
 
-                                return;
-                            }
+                            return;
                         }
                     }
-
-
-                    //Если прошли цикл, значит это новая трава!
-                    database.Objects.ObjectsDict[ZoneID].Add(item);
                 }
+
+
+                //Если прошли цикл, значит это новая трава!
+                database.Objects.ObjectsDict[ZoneID].Add(item);
             }
             else
             {

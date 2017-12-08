@@ -49,14 +49,19 @@ namespace Rio_WoW_Radar
 
         private static void menuStrip_settings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Тут должны быть настройки, но их нет(");
+            using (Forms.Settings settingsForm = new Forms.Settings())
+            {
+                settingsForm.ShowDialog();
+            }
         }
 
 
         private static void menuStrip_playersGuid_Click(object sender, EventArgs e)
         {
-            PlayersGuid_Form playerGuids = new PlayersGuid_Form();
-            playerGuids.ShowDialog();
+            using (Forms.Players_Guids playerGuidsForm = new Forms.Players_Guids())
+            {
+                playerGuidsForm.ShowDialog();
+            }
         }
 
 
@@ -76,6 +81,9 @@ namespace Rio_WoW_Radar
                 menuStrip.Visible = false;
                 MouseOver = false;
             }
+
+            //Делаем радар поверх всех окон, если включено в настройках
+            if (general_form.TopMost != Game1.settings.TopMost) { general_form.TopMost = Game1.settings.TopMost; }
         }
     }
 }

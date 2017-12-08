@@ -225,7 +225,7 @@ namespace Rio_WoW_Radar
         }
 
 
-        private bool SetDebugPrivilege()
+        public bool SetDebugPrivilege()
         {
             IntPtr zero = IntPtr.Zero;
             MemoryApi.LUID luid = default(MemoryApi.LUID);
@@ -420,8 +420,6 @@ namespace Rio_WoW_Radar
             return array;
         }
 
-
-
         public static byte[] ConcatArrays(byte[] a, byte[] b)
         {
             try
@@ -433,6 +431,33 @@ namespace Rio_WoW_Radar
             }
             catch
             { return a; }
+        }
+
+        public static bool SetDebugPrivileges()
+        {
+            IntPtr zero = IntPtr.Zero;
+            MemoryApi.LUID luid = default(MemoryApi.LUID);
+            luid.HighPart = 0;
+            luid.LowPart = 0u;
+            MemoryApi.TOKEN_PRIVILEGES tOKEN_PRIVILEGES = default(MemoryApi.TOKEN_PRIVILEGES);
+
+            IntPtr currentProcess = MemoryApi.GetCurrentProcess();
+
+            if (!MemoryApi.OpenProcessToken(currentProcess, 40u, out zero))
+            {
+                return false;
+            }
+
+            if (!MemoryApi.LookupPrivilegeValue("", "SeDebugPrivilege", out luid))
+            {
+                return false;
+            }
+
+            tOKEN_PRIVILEGES.PrivilegeCount = 1u;
+            tOKEN_PRIVILEGES.Luid = luid;
+            tOKEN_PRIVILEGES.Attributes = 2u;
+
+            return MemoryApi.AdjustTokenPrivileges(zero, false, ref tOKEN_PRIVILEGES, 0u, IntPtr.Zero, IntPtr.Zero) && MemoryApi.CloseHandle(zero) != 0;
         }
     }
 

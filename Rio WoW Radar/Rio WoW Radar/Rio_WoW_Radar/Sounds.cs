@@ -46,15 +46,18 @@ namespace Rio_WoW_Radar
         public static void ChecksHighLevels(ArrayList players, Radar.PlayerObject im)
         {
             //Чекаем, теряем ли мы хп?
-            if (im.CurrentHealth < LastMyHP)
+            if (Game1.settings.sounds.PlayMeDamaged)
             {
-                if (my_player_damaged.State == SoundState.Stopped)
+                if (im.CurrentHealth < LastMyHP)
                 {
-                    //Нас дамажат, проигрываем эффект удара
-                    my_player_damaged.Volume = 0.3f;
-                    my_player_damaged.Pitch = Game1.random.Next(4, 6) / 10.0f;
-                    my_player_damaged.Play();
-                }
+                    if (my_player_damaged.State == SoundState.Stopped)
+                    {
+                        //Нас дамажат, проигрываем эффект удара
+                        my_player_damaged.Volume = 0.3f;
+                        my_player_damaged.Pitch = Game1.random.Next(4, 6) / 10.0f;
+                        my_player_damaged.Play();
+                    }
+                }              
             }
             LastMyHP = im.CurrentHealth;
 
@@ -117,22 +120,29 @@ namespace Rio_WoW_Radar
                             if (HighLvlFinded)  //Высокий уровень
                             {
                                 //Если рога
-                                if (player.Class == (byte)Defines.Classes.ROGUE | player.Class == (byte)Defines.Classes.DRUID)
+                                bool hasRogue = (player.Class == (byte)Defines.Classes.ROGUE | player.Class == (byte)Defines.Classes.DRUID);
+                                if (Game1.settings.sounds.PlayInvisibles & hasRogue)
                                 {
-                                    if (high_lvl_rogue.State != SoundState.Playing)
+                                    if (Game1.settings.sounds.PlayInvisibles) //Если проигрывать звуки для инвизчиков
                                     {
-                                        low_lvl.Stop();
-                                        high_lvl.Stop();
-                                        high_lvl_rogue.Play();
+                                        if (high_lvl_rogue.State != SoundState.Playing)
+                                        {
+                                            low_lvl.Stop();
+                                            high_lvl.Stop();
+                                            high_lvl_rogue.Play();  //Проигрываем звук для инвизеров
+                                        }
                                     }
                                 }
                                 else
                                 {
-                                    if (high_lvl.State != SoundState.Playing)
+                                    if (Game1.settings.sounds.PlayHighLvl) //Если проигрывать звуки для высоких лвл
                                     {
-                                        low_lvl.Stop();
-                                        high_lvl_rogue.Stop();
-                                        high_lvl.Play();
+                                        if (high_lvl.State != SoundState.Playing)
+                                        {
+                                            low_lvl.Stop();
+                                            high_lvl_rogue.Stop();
+                                            high_lvl.Play();  //Проигрываем звук для высоких лвл
+                                        }
                                     }
                                 }
 
@@ -141,13 +151,16 @@ namespace Rio_WoW_Radar
                             }
                             else if (!player.IsHighLvl) //Низкий уровень
                             {
-                                if (low_lvl.State != SoundState.Playing & high_lvl_rogue.State != SoundState.Playing)
+                                if (Game1.settings.sounds.PlayLowLvl) //Если проигрывать звуки для низких лвл
                                 {
-                                    high_lvl.Stop();
-                                    low_lvl.Play();
+                                    if (low_lvl.State != SoundState.Playing & high_lvl_rogue.State != SoundState.Playing)
+                                    {
+                                        high_lvl.Stop();
+                                        low_lvl.Play();  //Проигрываем звук для низких лвл
+                                    }
+                                    findedAny = true;
+                                    break;
                                 }
-                                findedAny = true;
-                                break;
                             }
                         }
                     }

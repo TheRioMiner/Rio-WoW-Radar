@@ -24,12 +24,15 @@ namespace Rio_WoW_Radar
             public const int StaticCurrentZoneID = 0x00BCEFF0;
             public const int StaticInWorld = 0x00BD0792;
 
-            //public class Other
-            //{
-            //    public const int StaticKilledMobsPointer = 0x0CCD4D34;  //0CCD4BC8 + 16C = 0CCD4D34
-            //    public const int KilledMobsOffset1 = 0x22C;
-            //    public const int KilledMobsOffset2 = 0x2E0;  //KilledMobsOffset1 + KilledMobsOffset2 = Address of uint
-            //}
+            public class Other
+            {
+                public const int StaticKilledMobsPointer = 0x0CCD4D34;  //0CCD4BC8 + 16C = 0CCD4D34
+                public const int KilledMobsOffset1 = 0x22C;
+                public const int KilledMobsOffset2 = 0x2E0;  //KilledMobsOffset1 + KilledMobsOffset2 = Address of uint
+
+                public const int StaticLoginString = 0x00C79620;
+                public const int StaticServerNameString = 0x00C79B9E;
+            }
         }
 
         public class Name

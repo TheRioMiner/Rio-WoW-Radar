@@ -8,8 +8,12 @@ namespace Rio_WoW_Radar
 {
     public static class Drawing
     {
-        public static float RadarCenterXPos = (((1)) * Game1.RadarZoom + Game1.RadarWidth / 2) - (Game1.RadarZoom);
-        public static float RadarCenterYPos = (((1)) * Game1.RadarZoom + Game1.RadarWidth / 2) - (Game1.RadarZoom);
+        public static float RadarCenterXPos
+        { get { return (((1)) * Game1.settings.RadarZoom + Game1.RadarWidth / 2) - (Game1.settings.RadarZoom); } }
+
+        public static float RadarCenterYPos
+        { get { return (((1)) * Game1.settings.RadarZoom + Game1.RadarWidth / 2) - (Game1.settings.RadarZoom);  } }
+
 
         public static float MainFontSize
         {
@@ -99,78 +103,16 @@ namespace Rio_WoW_Radar
         }
 
 
-        //public static void DrawObject(this SpriteBatch sb, ArrayList Objects, Radar.OtherObject currObject, Radar.PlayerObject im)
-        //{
-        //    float XPos = (im.XPos - currObject.XPos) * Game1.RadarZoom + Game1.RadarWidth / 2;
-        //    float YPos = (im.YPos - currObject.YPos) * Game1.RadarZoom + Game1.RadarHeight / 2;
-
-        //    //Временная переменная
-        //    Enums.Name_And_TextureName finded = new Enums.Name_And_TextureName();
-
-
-        //    if (Enums.ObjDB.GetOre(currObject.ObjectId, ref finded))  //Это руда
-        //    {
-        //        //Если отрисовываем руды
-        //        if (Game1.settings.ores.Draw)
-        //        {
-        //            Texture2D Texture = Textures.GetTexture(finded.textureName);
-        //            int Size = Game1.settings.ores.Size;
-        //            Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
-
-        //            sb.DrawCircle(new Vector2(XPos, YPos), (4 * Game1.RadarZoom), Color.Gold, 2, 8);
-        //            sb.DrawTexture(Texture, TextureDest);
-        //            sb.DrawText(finded.name, new Vector2(XPos, YPos + Size), Game1.settings.ores.FontSize, Game1.settings.ores.Color);
-        //        }
-        //    }
-        //    else if (Enums.ObjDB.GetHerb(currObject.ObjectId, ref finded))  //Трава
-        //    {
-        //        //Если отрисовываем травы
-        //        if (Game1.settings.herbs.Draw)
-        //        {
-        //            int Size = Game1.settings.herbs.Size;
-        //            Texture2D Texture = Textures.GetTexture(finded.textureName);
-        //            Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
-
-        //            sb.DrawCircle(new Vector2(XPos, YPos), (4 * Game1.RadarZoom), Color.Gold, 2, 8);
-        //            sb.DrawTexture(Texture, TextureDest);
-        //            sb.DrawText(finded.name, new Vector2(XPos, YPos + Size), Game1.settings.herbs.FontSize, Game1.settings.herbs.Color);
-        //        }
-        //    }
-        //    else if (Enums.ObjDB.GetRareObject(currObject.ObjectId, ref finded))  //Редкий объект
-        //    {
-        //        //Если отрисовываем редкие объекты
-        //        if (Game1.settings.rareobjects.Draw)
-        //        {
-        //            int Size = Game1.settings.rareobjects.Size;
-        //            Color randomColor = Tools.GetRandomColor(Game1.random);
-        //            Texture2D Texture = Textures.GetTexture(finded.textureName);
-        //            Rectangle TextureDest = new Rectangle((int)XPos, (int)YPos, Size, Size);
-
-        //            sb.DrawLine(new Vector2(RadarCenterXPos, RadarCenterYPos), new Vector2(XPos, YPos), randomColor, 2);
-
-        //            sb.DrawTexture(Texture, TextureDest, Game1.GlobalRotating);
-        //            sb.DrawText(finded.name, new Vector2(XPos, YPos + Size), Game1.settings.rareobjects.FontSize, randomColor);
-        //        }
-        //    }
-        //    else  //Остальные объекты
-        //    {
-        //        //Если отрисовываем остальные объекты
-        //        if (Game1.settings.otherobjects.Draw)
-        //        {
-        //            sb.DrawLine(new Vector2(RadarCenterXPos, RadarCenterYPos), new Vector2(XPos, YPos), Game1.settings.otherobjects.Color, 1);
-        //            sb.DrawText(currObject.ObjectId.ToString(), new Vector2(XPos, YPos), 12.0f, Color.White);
-        //        }
-        //    }
-        //}
-
 
         public static void DrawPlayer(this SpriteBatch sb, Radar.PlayerObject player, Radar.PlayerObject im)
         {
+            float RadarZoom = Game1.settings.RadarZoom;
+
             bool IsEnemy = Defines.IsEnemy(player.Race, im.Race);
-            float XPos = (im.XPos - player.XPos) * Game1.RadarZoom + Game1.RadarWidth / 2;
-            float YPos = (im.YPos - player.YPos) * Game1.RadarZoom + Game1.RadarHeight / 2;
+            float XPos = (im.XPos - player.XPos) * RadarZoom + Game1.RadarWidth / 2;
+            float YPos = (im.YPos - player.YPos) * RadarZoom + Game1.RadarHeight / 2;
             float Rotation = -player.Rotation;
-            float Zoom = Game1.RadarZoom / 3.2f;
+            float Zoom = RadarZoom / 3.2f;
             Color color = Tools.GetRandomColor(Game1.random);
             int Size = Game1.settings.Player_Size;
 
@@ -232,7 +174,7 @@ namespace Rio_WoW_Radar
         public static void DrawMeAtCenter(this SpriteBatch sb, Radar.PlayerObject im)
         {
             float Rotation = -im.Rotation;
-            float Zoom = Game1.RadarZoom / 4;
+            float Zoom = Game1.settings.RadarZoom / 4;
 
             Texture2D main_tex = Textures.GetTextureByRaceAndGender(im.Race, im.Gender);
             Texture2D arrow_tex = Textures.GetTexture("other_arrow");
@@ -263,7 +205,7 @@ namespace Rio_WoW_Radar
 
         public static int ZoomFactor
         {
-            get { return (int)(TILE_HEIGHT * (Game1.RadarZoom / 0.5f)); }
+            get { return (int)(TILE_HEIGHT * (Game1.settings.RadarZoom / 0.5f)); }
         }
         
 

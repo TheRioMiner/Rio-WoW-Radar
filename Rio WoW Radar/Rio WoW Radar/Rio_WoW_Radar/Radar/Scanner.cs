@@ -39,6 +39,13 @@ namespace Rio_WoW_Radar.Radar
             InitAddresses();
         }
 
+        public Scanner(int pid)
+        {
+            WowReader.SetProcess(pid, Memory.Mode.READ);
+
+            InitAddresses();
+        }
+
         ~Scanner()
         {
             WowReader.CloseProcess();

@@ -218,6 +218,19 @@ namespace Rio_WoW_Radar.Enums
                 case 181688:  return true;  //Корабль, ледокол (Северное копье)
                 case 176231:  return true;  //Корабль "Леди Мели"
 
+                case 176244:  return true;  //Лунная пыль
+                case 177233:  return true;  //Переправа Оперенной Луны
+                case 186371:  return true;  //Дирижабль //ЫыыЫЫыыы))
+                case 187568:  return true;  //Черепаха (Идущая-по-волнам)
+                case 187038:  return true;  //Сестренка милосердия?
+                case 188511:  return true;  //Черепаха (Зеленый остров)
+                case 192241:  return true;  //Молот Оргрима
+                case 192242:  return true;  //Усмиритель небес
+                case 186238:  return true;  //Дирижабль Орды ("Могучий ветер")
+                case 181646:  return true;  //Экзодарский корабль
+                case 190549:  return true;  //Ship (Human Test Ship)
+
+
                 case 176310:  return true;  //Безмятежный берег?!
 
                 default:
